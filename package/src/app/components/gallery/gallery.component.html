@@ -1,0 +1,26 @@
+<!-- Welcome Message -->
+<header *ngIf="!isSideBar">
+    <p>{{galleryDescr}}</p>
+</header>
+
+<section>
+    <!-- for loop to display (up to 10) gallery items -->
+    <app-gallery-item
+        *ngFor="let item of galleryItems"
+            [item]="item"
+            [isSideBar]="isSideBar">
+    </app-gallery-item>
+
+    <!-- <hr /> -->
+    <div class="row text-center" id="loading" *ngIf="!isSideBar">
+        <!-- <img src="assets/images/loading.gif" title="Loading more awesome entries..." /> &nbsp;&nbsp; -->
+
+        <button (click)="loadMoreItems()" class="btn blue center">
+            Loading more awesome entries...
+        </button>
+    </div>
+
+    <div #scrollMore *ngIf="!isSideBar">&nbsp;</div>
+</section>
+
+<br /><br />

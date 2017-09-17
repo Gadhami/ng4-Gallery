@@ -1,0 +1,101 @@
+<div class="item no-padding no-gutters col-lg-3 col-md-6 col-sm-12 col-xs-12" [ngClass]="{ 'auto-width' : isSideBar }">
+
+    <!-- Item Name -->
+    <h4 class="name float-left">
+        <a href="#" (click)="openGallery($event)">    <!-- [routerLink]="['/items', item?.id]"> -->
+            {{item?.name}}
+        </a>
+    </h4>
+
+    <!-- More (...) -->
+    <div id="more" *ngIf="item?.menu">
+        <div class="float-right more-dot">
+            <a href="#">
+                <!-- <i class="fa fa-ellipsis-h" aria-hidden="true" title="More info about {{item?.name}}"></i> -->
+                <img src="assets/images/if_more-horiz_326673.svg" aria-hidden="true" title="More info about {{item?.name}}" />
+            </a>
+        </div>
+
+        <!-- Dropdown Menu -->
+        <div class="clearfix"></div>
+        <div class="dropdown">
+            <ul>
+                <li *ngFor="let menuItem of item?.menu" [ngClass]="{ 'separator' : menuItem.isSeparator }">
+                    <a [href]="menuItem.url" *ngIf="!menuItem.isSeparator">{{menuItem.name}}</a>
+                    <hr *ngIf="menuItem.isSeparator" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Items / Image / Video Player / ... -->
+    <span [title]="item?.description" [ngSwitch]="item?.type">
+        <!-- Video Player -->
+        <vg-player *ngSwitchCase="'video'">
+            <vg-overlay-play></vg-overlay-play>
+            <vg-buffering></vg-buffering>
+
+            <vg-scrub-bar *ngIf="!isSideBar">
+                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+            </vg-scrub-bar>
+
+            <vg-controls>
+                <vg-play-pause></vg-play-pause>
+                <vg-playback-button *ngIf="!isSideBar"></vg-playback-button>
+
+                <vg-time-display vgProperty="current" vgFormat="mm:ss" *ngIf="!isSideBar"></vg-time-display>
+
+                <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
+
+                <vg-time-display vgProperty="left" vgFormat="mm:ss" *ngIf="!isSideBar"></vg-time-display>
+                <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+
+                <!-- <vg-track-selector *ngIf="!isSideBar"></vg-track-selector> -->
+                <vg-mute></vg-mute>
+                <vg-volume *ngIf="!isSideBar"></vg-volume>
+
+                <vg-fullscreen></vg-fullscreen>
+            </vg-controls>
+
+            <video crossorigin="anonymous" [vgMedia]="media" #media preload="none" class="player" preload="metadata">
+                <source [src]="item?.url" type="item/mp4">
+
+                    <!-- <track kind="subtitles" label="English" src="http://static.itemgular.com/assets/subs/pale-blue-dot.vtt" srclang="en" default> -->
+
+                    Sorry, your browser doesn't support embedded items
+            </video>
+        </vg-player>
+
+        <!-- Image -->
+        <img class="player" [src]="item?.thumbUrl" [title]="item?.description" *ngSwitchCase="'image'" (click)="openGallery($event)" />
+    </span>
+
+    <!-- Item Ratings -->
+    <!-- <a href="#" *ngIf="item?.ratings" class="rating pull-right" [title]="avgRating | number:'1.0-1'" alt="Rate this item">
+        <img *ngFor="let img of [0,1,2,3,4]" class="favorite" src="assets/images/favorite.png" (click)="rateVideo($event)" [attr.data-id]="img + 1"
+            [ngClass]="{ 'vivid': intRating >= img + 1 }" />
+    </a> -->
+
+    <a href="#" (click)="toggleFavorite($event)" class="fav float-right" *ngIf="item?.showHeart">
+        <i class="fa fa-heart-o" aria-hidden="true"></i>
+    </a>
+
+    <!-- Item Description -->
+    <div class="description">
+        <p>
+            <span class="capitalize">{{item?.description}}</span>       <!-- | limitDescr -->
+            <span *ngIf="item?.description.length > 200">
+                <!-- &nbsp; <a [routerLink]="['/items', item?.id]" class="more" [title]="item?.description">(More)</a> -->
+            </span>
+        </p>
+    </div>
+
+    <!-- Tags -->
+    <div class="tags" *ngIf="item?.tags">
+        <a href="#" *ngFor="let tag of item?.tags" class="tag">
+            {{tag}}
+        </a>
+    </div>
+
+</div>

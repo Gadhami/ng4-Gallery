@@ -1,28 +1,61 @@
-# Ng4Gallery
+# ng4-Gallery
+Angular 4+ Gallery (Flickr-like image grid + Slideshow)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.0-beta.0.
+# Features
+*   Simple but fairly functional gallery based on Angular 4 (should work just fine if you use Angular 2)
 
-## Development server
+*   Includes a flickr-like image/video grid
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+*   Integrate nicely with PhotoSwipe to open full slideshow
 
-## Code scaffolding
+# Notes:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+*   No tests has been made on angular 2+ project, but instructions should be the same
 
-## Build
+*   If you have any question, consult the demo project or open an issue
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+*   To make things simple (for both me and potential developers / users), this package relies on PhotoSwipe to use the slideshow
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Steps:
 
-## Running end-to-end tests
+1.   Create a new angular 2+ project. If you are using Angular CLI, just run this command in command line:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+            ng new YOUR_PROJECT_NAME
 
-## Further help
+2.  Install PhotoSwipe via NPM by running this command:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+            npm install ng4-gallery
+
+3.  To initialize an image grid / gallery, simply add the component tag, ie.
+
+    ```html
+    <app-gallery></app-gallery>
+    ```
+
+4.  To open slideshow, simply add the component tag, ie.
+
+    ```html
+    <app-slideshow></app-slideshow>
+    ```
+
+5.  Include PhotoSwipe css and js files via CDN:
+
+    ```html
+        <!-- PhotoSwipe -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" />
+        <!-- Skin CSS file (styling of UI - buttons, caption, etc.)
+        In the folder of skin CSS file there are also:
+        - .png and .svg icons sprite,
+        - preloader.gif (for browsers that do not support CSS animations) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.css" />
+
+        <!-- photoswipe - Core JS file -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js"></script>
+
+        <!-- photoswipe - UI JS file -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js"></script>
+    ```
+
+That's all!
+Cheers!

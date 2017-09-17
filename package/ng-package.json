@@ -1,0 +1,15 @@
+{
+    "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+    "lib": {
+        "entryFile": "public_api.ts",
+        "externals": {
+            "videogular2/core": "videogular2",
+            "videogular2/controls": "videogular2",
+            "videogular2/overlay-play": "videogular2",
+            "videogular2/buffering": "videogular2",
+
+            "photoswipe": "photoswipe",
+            "photoswipe/dist/photoswipe-ui-default": "photoswipe"
+        }
+    }
+}

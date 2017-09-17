@@ -1,0 +1,42 @@
+/* ========== Grid "Container" */
+section
+{
+    overflow-x: hidden;
+}
+
+/* ========== Fix a small position anomaly with large width */
+@media screen and (min-width: 1000px)
+{
+    section { padding-left: 10px; }
+}
+
+/* ========== Button */
+.btn
+{
+    border-radius: 0;    
+}
+.btn.blue
+{
+    background: #207bca;
+    box-shadow: 0 0 8px 1px hsla(208, 100%, 93%, 1);
+    /* border: 1px solid hsla(208, 100%, 94%, 1); */
+    color: aliceblue;
+}
+
+/* ========== "Loading more items..." */
+#loading
+{
+    font-weight: bold;
+    margin-top: 15px;
+}
+#loading button
+{
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+/* ========== Indent Welcome/Greeting Header */
+header
+{
+    text-indent: 7px;
+}

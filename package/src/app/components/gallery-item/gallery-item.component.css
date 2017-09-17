@@ -1,0 +1,273 @@
+/* Item "Box" */
+.item
+{
+    font-family: 'Droid Sans';
+    font-size: 1em;
+    background: white;
+
+    /* Put some space between items */
+    margin: 6px 6px;
+    padding: 10px;
+
+    /* Add a nice/soft shadow & border around item boxes */
+    box-shadow: 0px 0px 8px 1px rgba(235,240,245,1);
+    border: 1px rgba(235,240,245,1) solid;
+
+    /* Grid-like display: */
+    display: inline-block;
+    width: calc(25% - 16px);
+}
+
+.item.no-padding
+{
+    padding: 0;
+}
+
+/* bootstrap col*-* didn't work that well, and because of the time constraints, I used @media queries */
+@media screen and (max-width: 750px) {
+    .item { width: calc(100% - 16px); max-width: 100%; }  /* 99% */
+}
+@media screen and (max-width: 1000px) and (min-width: 751px) {
+    .item { width: calc(50% - 16px); max-width: 50%; }  /* 49% */
+}
+@media screen and (max-width: 1200px) and (min-width: 1001px) {
+    .item { width: calc(33% - 16px); max-width: 34%; }  /* 32% */
+}
+
+@media screen and (max-width: 1000px)
+{
+    /* Remove padding on small devices */
+    .item { padding: 0; }
+
+    /* Adjust ratings icons position */
+    .item a.rating { right: 5px; }
+}
+
+/* Adjust item player/image dimensions */
+.item .player
+{
+    width: 100%;
+    height: 300px;
+    cursor: pointer;
+}
+
+.name
+{
+    line-height: 70px;
+    text-indent: 7px;
+}
+
+/* More ... */
+.more-dot
+{
+    height: 60px;
+}
+.more-dot a
+{
+    display: inline-flex;
+    height: 70px;
+}
+.more-dot img
+{
+    padding-right: 10px;
+    opacity: 0.4;
+}
+.more-dot img:hover {
+    opacity: 1;
+}
+
+/* Rating icon */
+img.favorite
+{
+    opacity: 0.5;
+}
+
+.item a.rating
+{
+    top: 20px;
+    position: relative;
+}
+
+/* Change favorite image opacity if user hover it */
+img:hover.favorite, img.vivid
+{
+    opacity: 1;
+}
+
+/* Item Name */
+h4
+{
+    height: 60px;
+    line-height: 25px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+    h4 a
+    {
+        text-decoration: none;
+        color: blue;
+        border-bottom: 1px solid rgba(39, 109, 170, 0.5);
+    }
+
+    h4 a:hover
+    {
+        border-bottom: 2px solid;
+    }
+
+/* Item Description */
+.description p
+{
+    height: 100px;
+    overflow: hidden;
+    padding: 10px;
+}
+
+/* Set width to auto if we're loading item as a sidebar (if item details) */
+.auto-width
+{
+    width: auto;
+}
+
+.more
+{
+    color: blue;
+    text-decoration: underline;
+}
+
+/* Item Tag */
+div.tags
+{
+    margin: 5px;
+}
+a.tag
+{
+    display: inline-block;
+    padding: 5px;
+    background: #f8f9fa;
+    color: rgba(73, 80, 87, 0.7);
+    margin-right: 7px;
+    border-bottom: 2px solid hsl(0, 0%, 80%);
+    font-size: 0.9em;
+
+    background: aliceblue;
+    border-bottom: 2px solid #007bff;
+    color: #007bff;
+}
+a.tag:hover
+{
+    text-decoration: none;
+    /* color: #495057; */
+
+    background: hsla(208, 100%, 94%, 1);
+    border-bottom: 2px solid #007bff;
+    color: #007bff;
+}
+
+/* Dropdown Menu */
+.dropdown
+{
+    position: absolute;
+    display: none;
+    margin: 0;
+    width: 50%;
+    padding: 0;
+    right: 0;
+}
+.dropdown ul
+{
+    background: white;
+    box-shadow: 0px 0px 12px 1px rgba(235,240,245,0.5);
+    border: 1px rgba(235,240,245,1);
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    font-size: 0.9em;
+
+    /* Top Border (works with) */
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown arrow */
+.dropdown:before
+{
+    position: absolute;
+    top: -7px;
+    display: inline-block;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid rgba(235, 240, 245, 0.5);
+    border-left: 7px solid transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+    content: '';
+    right: 10px;
+}
+  
+.dropdown:after
+{
+    position: absolute;
+    top: -6px;
+    display: inline-block;
+    border-right: 6px solid transparent;
+    border-bottom: 7px solid #ffffff;
+    border-left: 6px solid transparent;
+    content: '';
+    right: 11px;
+}
+
+.more-dot:hover ~ .dropdown, .dropdown:hover
+{
+    display: block;
+}
+
+.dropdown li
+{
+    cursor: pointer;
+    line-height: 35px;
+    padding-left: 10px;
+}
+/* .dropdown li:hover
+{
+    background: aliceblue;
+} */
+
+li.separator
+{
+    line-height: 1px;
+    height: 1px;
+}
+li.separator hr
+{
+    border-top-color: aliceblue;
+    margin-top: 0;
+}
+.dropdown li a
+{
+    color: black;
+}
+.dropdown li:hover a
+{
+    text-decoration: underline;
+    color: blue;
+}
+
+/* Favorite Icon */
+a.fav.float-right
+{
+    padding: 9px;
+    font-size: 1.25em;
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+    color: deeppink;
+    color: darkorchid;
+    color: crimson;
+    color: dodgerblue;
+    color: lightsteelblue;
+    color: wheat;
+}
+
+/* Capitalize description */
+.capitalize
+{
+    text-transform: capitalize;
+}
