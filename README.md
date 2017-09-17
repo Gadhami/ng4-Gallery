@@ -1,3 +1,7 @@
+**`NB. Although functional, please note that this is an alpha / pre-beta release - Do NOT use in production`**
+
+---
+
 # ng4-Gallery
 Angular 4+ Gallery (Flickr-like image grid + Slideshow)
 
