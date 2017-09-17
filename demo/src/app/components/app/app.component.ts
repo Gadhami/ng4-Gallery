@@ -8,15 +8,14 @@ import { IGalleryItem        } from 'ng4-gallery';
 
 // (Singleton) Notification service used to alert other components of changes & act upon it
 import { NotificationService } from 'ng4-gallery';
-// import { NotificationService } from './../../node_modules/ng4-gallery/src/app/services/notification/notification.service';
-// import { DestroySubscribers  } from 'app/decorators/destroy-subscribers';
+import { DestroySubscribers  } from 'app/decorators/destroy-subscribers';
 
 @Component({
     selector   : 'app-root',
     templateUrl: './app.component.html',
     styleUrls  : ['./app.component.css']
 })
-// @DestroySubscribers()
+@DestroySubscribers()
 export class AppComponent implements OnInit
 {
     public subscribers: any = {};
@@ -33,7 +32,7 @@ export class AppComponent implements OnInit
     // ========================================================================
     ngOnInit()
     {
-        // this.subscribeNotifications();
+        this.subscribeNotifications();
         this.loadMoreItems();
     }
 

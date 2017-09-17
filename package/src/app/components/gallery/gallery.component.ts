@@ -74,8 +74,6 @@ export class GalleryComponent implements OnInit
     {
         if (this.autoLoadCounter <= this.disableLoadMoreAfter)
         {
-            // console.log('loadMoreItems()');
-
             this.autoLoadCounter++;
             this.notif.loadMoreItems();
         }

@@ -53,8 +53,6 @@ export class GalleryItemComponent implements OnInit
     // =========================================================================
     openGallery(e)
     {
-        // console.log('openGallery()');
-
         e.preventDefault();
         this.notif.openSlideShow(this.item.id);
     }
