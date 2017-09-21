@@ -18,6 +18,12 @@
     width: calc(25% - 16px);
 }
 
+/* .item:hover
+{
+    outline: 1px solid rgba(0, 123, 255, 0.5);
+    box-shadow: 0px 0px 30px 0 rgba(86, 149, 212, 0.34);
+} */
+
 .item.no-padding
 {
     padding: 0;

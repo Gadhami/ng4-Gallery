@@ -21,7 +21,7 @@ Angular 4+ Gallery (Flickr-like image grid + Slideshow)
 *   To make things simple (for both me and potential developers / users), this package relies on PhotoSwipe to use the slideshow
 
 
-# Steps:
+# How to use:
 
 1.   Create a new angular 2+ project. If you are using Angular CLI, just run this command in command line:
 
